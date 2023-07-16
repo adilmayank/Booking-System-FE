@@ -8,7 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [numOfSeatsToBook, setNumOfSeatsToBook] = useState(0)
 
-  const ORIGIN = "https://booking-system-be-i9xs.onrender.com/"
+  const ORIGIN = "https://booking-system-be-i9xs.onrender.com"
 
   useEffect(() => {
     axios.get(`${ORIGIN}/api/v1/booking`).then((value) => {
