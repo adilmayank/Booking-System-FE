@@ -8,8 +8,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [numOfSeatsToBook, setNumOfSeatsToBook] = useState(0)
 
+  const ORIGIN = "https://booking-system-be-i9xs.onrender.com/"
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/v1/booking').then((value) => {
+    axios.get(`${ORIGIN}/api/v1/booking`).then((value) => {
       const { data } = value
       setIsLoading(false)
       console.log(data.value)
@@ -18,7 +20,7 @@ function App() {
   }, [])
 
   const handleRemoveBookings = async () => {
-    axios.delete('http://localhost:5000/api/v1/booking').then((value) => {
+    axios.delete(`${ORIGIN}/api/v1/booking`).then((value) => {
       const { data } = value
       setNumOfSeatsToBook(0)
       setSeatingPosition(data.value)
@@ -28,7 +30,7 @@ function App() {
   const handleAddBooking = async (numOfSeatsToBook) => {
     if (numOfSeatsToBook > 0 && numOfSeatsToBook <= 7) {
       axios
-        .post('http://localhost:5000/api/v1/booking', {
+        .post('`${ORIGIN}/api/v1/booking`', {
           numOfSeatsToBook: numOfSeatsToBook,
         })
         .then((value) => {
