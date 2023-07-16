@@ -30,7 +30,7 @@ function App() {
   const handleAddBooking = async (numOfSeatsToBook) => {
     if (numOfSeatsToBook > 0 && numOfSeatsToBook <= 7) {
       axios
-        .post('`${ORIGIN}/api/v1/booking`', {
+        .post(`${ORIGIN}/api/v1/booking`, {
           numOfSeatsToBook: numOfSeatsToBook,
         })
         .then((value) => {
